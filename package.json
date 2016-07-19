@@ -4,7 +4,7 @@
   "description": "A server that zaps you when you break the build.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
