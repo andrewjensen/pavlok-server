@@ -1,0 +1,15 @@
+{
+  "name": "pavlok-server",
+  "version": "1.0.0",
+  "description": "A server that zaps you when you break the build.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
