@@ -1,5 +1,3 @@
-'use strict';
-
 var pavlok = require('pavlok-beta-api-login');
 
 pavlok.init(
@@ -22,12 +20,25 @@ pavlok.login(function(result, code) {
 let continueShock = false;
 
 function shock() {
+  console.log('try shock');
   pavlok.zap({
-    value: 5,
+    value: 100,
   });
+  if (continueShock) {
+    setTimeout(shock, 4000);
+  }
 }
 
+function start() {
+  continueShock = true;
+  shock();
+}
+
+function stop() {
+  continueShock = false;
+}
 
 module.exports = {
-  shock
+  start,
+  stop
 };
