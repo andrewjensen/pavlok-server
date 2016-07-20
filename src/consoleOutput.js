@@ -47,8 +47,8 @@ function outputTime(t) {
 	if (images[index] === undefined) {
 		index = 0;
 	}
-	console.log(chalk.red('The build is broken.'));	
-	console.log(chalk.red('Time remaining: ') + chalk.bgRed((t > 0 ? t : 0) + 's'));	
+	console.log(chalk.red('The build is broken.'));
+	console.log(chalk.red('Time remaining: ') + chalk.bgRed((t > 0 ? t : 0) + 's'));
 	var imageName = images[index];
 	if (imageName === undefined) {
 		imageName = images[images.length - 1];
@@ -58,7 +58,7 @@ function outputTime(t) {
 
 function outputShock() {
 	clear();
-	console.log(chalk.bgRed('Fix the build.'));	
+	console.log(chalk.bgRed('Fix the build.'));
 	termImg('images/backToTheFuture4.gif');
 }
 
@@ -71,7 +71,7 @@ function fixed(){
 			index = 0;
 		}
 		clear();
-		console.log(chalk.green('The build is passing.'));	
+		console.log(chalk.green('The build is passing.'));
 		termImg('images/' + goodImages[index] + '.gif');
 	}, 2000);
 }
@@ -88,7 +88,7 @@ function startOutput() {
 			outputShock();
 		}
 		t -= 1;
-	}, 1000);
+	}, 2000);
 }
 
 function endOutput() {
