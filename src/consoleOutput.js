@@ -57,6 +57,7 @@ function outputShock() {
 }
 
 function fixed(){
+	endOutput();
 	clear();
 	console.log(chalk.green('Congrats!!'));	
 	termImg('images/youDaMan.gif');
