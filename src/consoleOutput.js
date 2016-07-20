@@ -31,9 +31,15 @@ var images = [
 'starWars5',
 ];
 
+var goodImages = [
+	'kylo',
+	'youDaMan',
+	'waynesWorld'
+];
+
 var t = 60;
 var interval;
-var index = 0;
+var index;
 
 function outputTime(t) {
 	clear();
@@ -58,12 +64,21 @@ function outputShock() {
 
 function fixed(){
 	endOutput();
-	clear();
-	console.log(chalk.green('Congrats!!'));	
-	termImg('images/youDaMan.gif');
+	index = 0;
+	interval = setInterval(function() {
+		index += 1;
+		if (goodImages[index] === undefined) {
+			index = 0;
+		}
+		clear();
+		console.log(chalk.green('Congrats!!'));	
+		termImg('images/' + goodImages[index] + '.gif');
+	}, 2000);
 }
 
 function startOutput() {
+	endOutput();
+	index = 0;
 	 interval = setInterval(function() {
 		if (t >= 0 ) {
 			outputTime(t);
