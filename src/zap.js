@@ -25,21 +25,9 @@ function shock() {
   pavlok.zap({
     value: 5,
   });
-  if (continueShock) {
-    setTimeout(shock, 1000);
-  }
 }
 
-function start() {
-  continueShock = true;
-  shock();
-}
-
-function stop() {
-  continueShock = false;
-}
 
 module.exports = {
-  start,
-  stop
+  shock
 };

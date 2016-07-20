@@ -76,7 +76,7 @@ function fixed(){
 	}, 2000);
 }
 
-function startOutput() {
+function startOutput(shock) {
 	endOutput();
 	index = 0;
 	 interval = setInterval(function() {
@@ -86,6 +86,7 @@ function startOutput() {
 		if (t <= -1) {
 			endOutput();
 			outputShock();
+      shock();
 		}
 		t -= 1;
 	}, 2000);

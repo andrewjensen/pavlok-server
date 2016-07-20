@@ -11,8 +11,7 @@ app.get('/', function (req, res) {
 
 app.get('/fail', (req, res) => {
   res.send('build failed!');
-  output.startOutput();
-  zap.start();
+  output.startOutput(zap.shock);
 });
 
 app.get('/pass', (req, res) => {
