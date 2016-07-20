@@ -40,6 +40,8 @@ var goodImages = [
 var t = 60;
 var interval;
 var index;
+var timeStart;
+var timeLeft;
 
 function outputTime(t) {
 	clear();
@@ -48,7 +50,8 @@ function outputTime(t) {
 		index = 0;
 	}
 	console.log(chalk.red('The build is broken.'));
-	console.log(chalk.red('Time remaining: ') + chalk.bgRed((t > 0 ? t : 0) + 's'));
+	timeLeft = Math.round(t - (Date.now() - timeStart) / 1000);
+	console.log(chalk.red('Time remaining: ') + chalk.bgRed(timeLeft + 's'));
 	var imageName = images[index];
 	if (imageName === undefined) {
 		imageName = images[images.length - 1];
@@ -65,6 +68,7 @@ function outputShock() {
 function fixed(){
 	endOutput();
 	index = 0;
+	timeStart = Date.now();
 	interval = setInterval(function() {
 		index += 1;
 		if (goodImages[index] === undefined) {
@@ -79,11 +83,12 @@ function fixed(){
 function startOutput(shock) {
 	endOutput();
 	index = 0;
+	timeStart = Date.now();
 	 interval = setInterval(function() {
 		if (t >= 0 ) {
 			outputTime(t);
 		}
-		if (t <= -1) {
+		if (timeLeft <= -1) {
 			endOutput();
 			outputShock();
       shock();
